@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Foundation\Auth\User as Authenticatable;  
+use Illuminate\Support\Facades\DB;
+
+
 
 class LoginController extends Controller
 {
@@ -29,7 +32,7 @@ class LoginController extends Controller
             return redirect()->route('login');
         }
         if(Hash::check($contrasena, $user->contrasena))
-        {
+        {   
             Auth::login($user);
             $request->session()->regenerate();
             return redirect()->route('home')->with('usuario',$user);
