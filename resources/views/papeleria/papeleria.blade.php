@@ -1,12 +1,12 @@
 @extends('layout.nav')
-@section('title', 'Solpeds')
+@section('title', 'Papeleria')
 @section('content')
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <div class="row g-3 mb-4 align-items-center justify-content-between">
         <div class="col-auto">
-            <h1 class="app-page-title mb-0">Administración Solpeds</h1>
+            <h1 class="app-page-title mb-0">Administración papeleria</h1>
         </div>
 
         <div class="col-auto">
@@ -17,14 +17,11 @@
                             <div class="col-auto">
                                 <input type="text" id="input_buscar" class="form-control search-orders" placeholder="Buscar">
                             </div>
-                          {{--   <div class="col-auto">
-                                <button type="submit" class="btn app-btn-secondary">Buscar</button>
-                            </div> --}}
                         </form>    
-                    </div><!--//col-->
+                    </div>
 
                     <div class="col-auto">  
-                        <form action="{{route('solped_filtro')}}" method="GET">
+                        <form action="" method="GET">
                         @method('GET')     
                         <select class="form-select w-auto" name="filtro" onchange="this.form.submit()">
                               <option selected value="filtro_T">Todos</option>
@@ -51,91 +48,46 @@
                                 <h5 class="modal-title" id="exampleModalLabel">Agregar Registro</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <form class="settings-form" action="{{route('agregar_solped')}}" method="POST">
+                            <form class="settings-form" action="{{route('agregar_papeleria')}}" method="POST">
                                 @method('POST')
                                 @csrf
                                 <div class="modal-body"> 
                                     <div class="row">
                                         <div class="col">
-                                            <label for="setting-input-2" class="form-label">Descripción / Cabecera</label>
+                                            <label for="setting-input-2" class="form-label">Descripción</label>
                                             <input type="text" name="descripcion" class="form-control" required>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col">
-                                            <label for="setting-input-2" class="form-label">Solicitante</label>
-                                            <input type="text" name="solicitante" class="form-control" required>
-                                        </div>
-                                        <div class="col">
-                                            <label for="setting-input-2" class="form-label">Estado</label>
-                                            <select name="estado" class="form-select" required>
-                                                <option value="Pendiente_P">Pendiente de pedido</option>
-                                                <option value="Pendiente_E">Pendiente de entrada</option>
-                                                <option value="Finalizada">Finalizada</option>
-                                            </select>
-                                        </div>
-                                    </div>
 
-                                    <script>
-                                       $(document).ready(function() {
-                                        $("#btn_pedido").click(function() {
-                                            $("#input_pedido").prop("disabled", false);
-                                            });
-                                        });
-                                    </script>
-
-                                    <div class="row">
-                                        <div class="col">
-                                            <label class="form-label">Solped</label>
-                                            <input type="text" name="solped" class="form-control">
-                                        </div>
-
-                                        <div class="col">
-                                            <label class="form-label">Pedido</label>
-                                            <div class="input-group">
-                                                <input type="text" name="pedido" id="input_pedido" class="form-control" disabled>
-                                                <button class="btn btn-info" type="button" id="btn_pedido"><i class="bi bi-pencil-fill"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col">
-                                            <label class="form-label">UM</label>
-                                            <input type="text" name="um" class="form-control">
-                                        </div>
                                         <div class="col">
                                             <label class="form-label">Cantidad</label>
                                             <input type="text" name="cantidad" class="form-control">
                                         </div>
+
                                         <div class="col">
-                                            <label class="form-label">Total</label>
-                                            <div class="input-group">
-                                                <span class="input-group-text">$</span>
-                                                <input type="number" step="any" name="total" id="input_pedido" class="form-control">
-                                            </div>
+                                            <label for="setting-input-2" class="form-label">Solicitante</label>
+                                            <input type="text" name="solicitante" class="form-control" required>
                                         </div>
+                                    
                                     </div>
 
                                     <div class="row">
+
                                         <div class="col">
-                                            <label class="form-label">Fecha de entrega</label>
-                                            <input type="date" name="fecha_entrega" class="form-control" required>
+                                            <label for="setting-input-2" class="form-label">Estado</label>
+                                            <select name="estado" class="form-select" required>
+                                                <option value="">Elije...</option>
+                                                <option value="Solicitado">Solicitado</option>
+                                                <option value="Entregado">Entregado</option>
+                                            </select>
                                         </div>
-                                    </div>
 
-                                    <script>
-                                        $(document).ready(function() {
-                                         $("#btn_entrada").click(function() {
-                                             $("#input_entrada").prop("disabled", false);
-                                             });
-                                         });
-                                     </script>
+                                        <div class="col">
+                                            <label class="form-label">Fecha</label>
+                                            <input type="date" name="fecha" class="form-control" required>
+                                        </div>
 
-                                    <label for="message-text" class="col-form-label">Entradas</label>
-                                    <div class="input-group">
-                                        <textarea style="min-height: 4rem;" type="text" name="entrada" class="form-control" id="input_entrada" disabled></textarea>
-                                        <button class="btn btn-info" type="button" id="btn_entrada"><i class="bi bi-pencil-fill"></i></button>
                                     </div>
 
                                     <div class="form-group">
@@ -176,52 +128,41 @@
                                         <tr>
                                             <th class="cell">#</th>
                                             <th class="cell">Descripción</th>
-                                            <th class="cell">Solped</th>
-                                            <th class="cell">Pedido</th>
-                                            <th class="cell">Entrada</th>
-                                            <th class="cell">UM</th>
                                             <th class="cell">Cantidad</th>
-                                            <th class="cell">Total</th>
                                             <th class="cell">Solicitante</th>
+                                            <th class="cell">Fecha</th>
+                                            <th class="cell">Observaciones</th>
                                             <th class="cell">Estado</th>
-                                            <th class="cell">Fecha Entrega</th>
                                             <th class="cell"></th>
                                         </tr>
                                     </thead>
                                     <tbody> <?php $i=1; ?>
-                                            @foreach($solpeds as $solped)
+                                          @foreach($papeleria as $papel)
                                             <tr id="tr_solped">
                                                 <td class="cell">{{$i}}</td>
-                                                <td class="cell"><span>{{$solped->descripcion}}</span></td>
-                                                <td class="cell"><span class="truncate">{{$solped->solped}}</span></td>
-                                                <td class="cell"><span class="truncate">{{$solped->pedido}}</span></td>
-                                                <td class="cell"><span class="truncate">{{$solped->entrada}}</span></td>
-                                                <td class="cell"><span class="truncate">{{$solped->um}}</span></td>
-                                                <td class="cell"><span class="truncate">{{$solped->cantidad}}</span></td>
-                                                <td class="cell"><span class="truncate"><?php echo '$ ' . number_format($solped->total, 2);?></span></td>
-                                                <td class="cell"><span class="truncate">{{$solped->solicitante}}</span></td>
-                                               @switch($solped->estado)
-                                                   @case('Pendiente_P')
-                                                       <td class="cell"><span class="badge bg-danger">Pendiente Pedido</span></td>
+                                                <td class="cell"><span>{{$papel->descripcion}}</span></td>
+                                                <td class="cell"><span class="truncate">{{$papel->cantidad}}</span></td>
+                                                <td class="cell"><span class="truncate">{{$papel->solicitante}}</span></td>
+                                                <td class="cell"><span class="truncate">{{$papel->fecha}}</span></td>
+                                                <td class="cell"><span class="truncate">{{$papel->observaciones}}</span></td>
+                                
+                                               @switch($papel->estado)
+                                                   @case('Solicitado')
+                                                       <td class="cell"><span class="badge bg-warning">Solicitado</span></td>
                                                        @break
-                                                   @case('Pendiente_E')
-                                                       <td class="cell"><span class="badge bg-warning">Pendiente Entrega</span></td>
-                                                       @break
-                                                    @case('Finalizada')
-                                                       <td class="cell"><span class="badge bg-success">Finalizada</span></td>
+                                                   @case('Entregado')
+                                                       <td class="cell"><span class="badge bg-success">Entregado</span></td>
                                                        @break
                                                    @default    
                                                @endswitch
-                                                <?php $fecha = date("d/m/y", strtotime($solped->fecha_entrega)); ?>
-                                                <td class="cell"><span class="truncate">{{$fecha}}</span></td>
+                                             
+                                               
                                                 <td class="cell">
-                                                    <a href="{{route('editar_solped_view', $solped->id)}}" class="btn-sm  btn_icon info" style="padding:0.5rem;"><i class="bi bi-pencil"></i></a>
-                                                    {{-- <a href="" class="btn-sm  btn_icon warning" style="padding:0.5rem;"><i class="bi bi-eye"></i></a> --}}
-                                                    {{--  <a href="#" class="btn-sm  btn_icon info" style="padding:0.5rem;"><i class="bi bi-pencil"></i></a> --}}
+                                                    <a href="{{route('editar_papeleria_view', $papel->id)}}" class="btn-sm  btn_icon info" style="padding:0.5rem;"><i class="bi bi-pencil"></i></a>
                                                 </td>
                                             </tr>
                                             <?php $i++; ?>
-                                        @endforeach
+                                         @endforeach
                                     </tbody>
                                 </table>
                             </div><!--//table-responsive-->                           

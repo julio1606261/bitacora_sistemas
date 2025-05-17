@@ -200,13 +200,25 @@
 
 						<li class="nav-item has-submenu">
 					        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-							<a class="nav-link" href="{{route('solped')}}">
+							<a class="nav-link" href="{{route('reservas')}}">
 						        <span class="nav-icon">
 									<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
 										<path fill-rule="evenodd" d="M9 2.221V7H4.221a2 2 0 0 1 .365-.5L8.5 2.586A2 2 0 0 1 9 2.22ZM11 2v5a2 2 0 0 1-2 2H4v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-7Z" clip-rule="evenodd"/>
 									</svg>																		
 						         </span>
 		                         <span class="nav-link-text">Reservas</span>
+					        </a><!--//nav-link-->
+					    </li><!--//nav-item-->
+
+						<li class="nav-item has-submenu">
+					        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+							<a class="nav-link" href="{{route('papeleria')}}">
+						        <span class="nav-icon">
+									<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+										<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8v8a5 5 0 1 0 10 0V6.5a3.5 3.5 0 1 0-7 0V15a2 2 0 0 0 4 0V8"/>
+									</svg>																  
+						         </span>
+		                         <span class="nav-link-text">Papeleria</span>
 					        </a><!--//nav-link-->
 					    </li><!--//nav-item-->
 

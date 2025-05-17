@@ -59,6 +59,9 @@ class SolpedController extends Controller
             'solped' => $request->solped,
             'pedido' => $request->pedido,
             'entrada' => $request->entrada,
+            'um' => $request->um,
+            'cantidad' => $request->cantidad,
+            'total' => $request->total,
             'observaciones' => $request->observaciones,
             'fecha_entrega' => $request->fecha_entrega,
             'estado' => $request->estado,
@@ -86,6 +89,9 @@ class SolpedController extends Controller
             'fecha_entrega' => $request->fecha_entrega,
             'entrada' => $request->entrada,
             'observaciones' => $request->observaciones,
+            'um' => $request->um,
+            'cantidad' => $request->cantidad,
+            'total' => $request->total,
         ]);
 
         Alert::success('Todo correcto', 'Registro actualizado correctamente');

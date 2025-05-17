@@ -70,18 +70,29 @@
 
         <div class="row">
             <div class="col">
+                <label class="form-label">UM</label>
+                <input type="text" name="um" value="{{$solped->um}}" class="form-control">
+            </div>
+            <div class="col">
+                <label class="form-label">Cantidad</label>
+                <input type="text" name="cantidad" value="{{$solped->cantidad}}" class="form-control">
+            </div>
+            <div class="col">
+                <label class="form-label">Total</label>
+                <div class="input-group">
+                    <span class="input-group-text">$</span>
+                    <input type="number" name="total" value="{{$solped->total}}" id="input_pedido" class="form-control">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
                 <label class="form-label">Fecha de entrega</label>
                 <input type="date" name="fecha_entrega" class="form-control" value="{{$solped->fecha_entrega}}" required>
             </div>
         </div>
 
-      {{--   <script>
-            $(document).ready(function() {
-             $("#btn_entrada").click(function() {
-                 $("#input_entrada").prop("disabled", false);
-                 });
-             });
-         </script> --}}
 
         <label for="message-text" class="col-form-label">Entradas</label>
         <div class="input-group">

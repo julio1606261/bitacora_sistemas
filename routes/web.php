@@ -6,7 +6,9 @@ use App\Http\Controllers\DepartamentosController;
 use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\BitacoraController;
 use App\Http\Controllers\SolpedController;
+use App\Http\Controllers\ReservasController;
 use App\Http\Controllers\ReportesController;
+use App\Http\Controllers\PapeleriaController;
 use App\Http\Controllers\LoginController;
 use App\Http\Middleware\LoginMiddleware;
 
@@ -41,3 +43,11 @@ Route::get('/solpeds/filtro', [SolpedController::class, 'filtro'])->name('solped
 Route::post('/solpeds', [SolpedController::class, 'agregar'])->name('agregar_solped')->middleware(LoginMiddleware::class);
 Route::get('/solpeds/editar/{id}', [SolpedController::class, 'editar_view'])->name('editar_solped_view')->middleware(LoginMiddleware::class);
 Route::put('/solpeds/editar', [SolpedController::class, 'editar'])->name('editar_solped')->middleware(LoginMiddleware::class);
+
+Route::get('/reservas', [ReservasController::class, 'index'])->name('reservas')->middleware(LoginMiddleware::class);
+
+
+Route::get('/papeleria', [PapeleriaController::class, 'index'])->name('papeleria')->middleware(LoginMiddleware::class);
+Route::post('/papeleria', [PapeleriaController::class, 'agregar'])->name('agregar_papeleria')->middleware(LoginMiddleware::class);
+Route::get('/papeleria/editar/{id}', [PapeleriaController::class, 'editar_view'])->name('editar_papeleria_view')->middleware(LoginMiddleware::class);
+Route::get('/papeleria/editar', [PapeleriaController::class, 'editar'])->name('editar_papeleria')->middleware(LoginMiddleware::class);
